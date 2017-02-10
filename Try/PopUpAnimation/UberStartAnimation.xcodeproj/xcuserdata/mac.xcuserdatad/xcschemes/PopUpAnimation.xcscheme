@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "04C523AF1E4CA1760059B4E0"
-               BuildableName = "PopUpAnimation.app"
-               BlueprintName = "PopUpAnimation"
-               ReferencedContainer = "container:PopUpAnimation.xcodeproj">
+               BuildableName = "UberStartAnimation.app"
+               BlueprintName = "UberStartAnimation"
+               ReferencedContainer = "container:UberStartAnimation.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04C523AF1E4CA1760059B4E0"
-            BuildableName = "PopUpAnimation.app"
-            BlueprintName = "PopUpAnimation"
-            ReferencedContainer = "container:PopUpAnimation.xcodeproj">
+            BuildableName = "UberStartAnimation.app"
+            BlueprintName = "UberStartAnimation"
+            ReferencedContainer = "container:UberStartAnimation.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04C523AF1E4CA1760059B4E0"
-            BuildableName = "PopUpAnimation.app"
-            BlueprintName = "PopUpAnimation"
-            ReferencedContainer = "container:PopUpAnimation.xcodeproj">
+            BuildableName = "UberStartAnimation.app"
+            BlueprintName = "UberStartAnimation"
+            ReferencedContainer = "container:UberStartAnimation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04C523AF1E4CA1760059B4E0"
-            BuildableName = "PopUpAnimation.app"
-            BlueprintName = "PopUpAnimation"
-            ReferencedContainer = "container:PopUpAnimation.xcodeproj">
+            BuildableName = "UberStartAnimation.app"
+            BlueprintName = "UberStartAnimation"
+            ReferencedContainer = "container:UberStartAnimation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

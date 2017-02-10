@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		049A28701E4E06D000D80414 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
-		04C523B01E4CA1760059B4E0 /* PopUpAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopUpAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04C523B01E4CA1760059B4E0 /* UberStartAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberStartAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C523B31E4CA1760059B4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C523B51E4CA1760059B4E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04C523B81E4CA1760059B4E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +48,7 @@
 		04C523B11E4CA1760059B4E0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04C523B01E4CA1760059B4E0 /* PopUpAnimation.app */,
+				04C523B01E4CA1760059B4E0 /* UberStartAnimation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,9 +70,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04C523AF1E4CA1760059B4E0 /* PopUpAnimation */ = {
+		04C523AF1E4CA1760059B4E0 /* UberStartAnimation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04C523C21E4CA1760059B4E0 /* Build configuration list for PBXNativeTarget "PopUpAnimation" */;
+			buildConfigurationList = 04C523C21E4CA1760059B4E0 /* Build configuration list for PBXNativeTarget "UberStartAnimation" */;
 			buildPhases = (
 				04C523AC1E4CA1760059B4E0 /* Sources */,
 				04C523AD1E4CA1760059B4E0 /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = PopUpAnimation;
+			name = UberStartAnimation;
 			productName = PopUpAnimation;
-			productReference = 04C523B01E4CA1760059B4E0 /* PopUpAnimation.app */;
+			productReference = 04C523B01E4CA1760059B4E0 /* UberStartAnimation.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 04C523AB1E4CA1760059B4E0 /* Build configuration list for PBXProject "PopUpAnimation" */;
+			buildConfigurationList = 04C523AB1E4CA1760059B4E0 /* Build configuration list for PBXProject "UberStartAnimation" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -117,7 +117,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04C523AF1E4CA1760059B4E0 /* PopUpAnimation */,
+				04C523AF1E4CA1760059B4E0 /* UberStartAnimation */,
 			);
 		};
 /* End PBXProject section */
@@ -292,7 +292,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04C523AB1E4CA1760059B4E0 /* Build configuration list for PBXProject "PopUpAnimation" */ = {
+		04C523AB1E4CA1760059B4E0 /* Build configuration list for PBXProject "UberStartAnimation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04C523C01E4CA1760059B4E0 /* Debug */,
@@ -301,7 +301,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04C523C21E4CA1760059B4E0 /* Build configuration list for PBXNativeTarget "PopUpAnimation" */ = {
+		04C523C21E4CA1760059B4E0 /* Build configuration list for PBXNativeTarget "UberStartAnimation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04C523C31E4CA1760059B4E0 /* Debug */,

@@ -24,11 +24,14 @@ class CustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configCell(title: String, details: String) {
-
-        self.titleLabel.text = title
-        self.datailsLabel.text = details
+    func configCell(title: String?, details: String?) {
+        if let title = title {
+           self.titleLabel.text = title
+        }
         
+        if let detailsLabel = details {
+            self.datailsLabel.text = detailsLabel
+        }
     }
 }
 

@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     var tableView = UITableView()
     var textField = UITextField()
     var button = UIButton()
+    var headerView = UIView()
     
     let realm = try! Realm()
     var toDoList: Results<ToDoItem> {
