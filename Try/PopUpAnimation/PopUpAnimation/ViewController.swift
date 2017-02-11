@@ -18,10 +18,10 @@ class ViewController: UIViewController {
     fileprivate var topConstraint: NSLayoutConstraint!
     fileprivate var showKeyboard = false
     fileprivate var nextButton = UIButton()
-    let distance: CGFloat = 32
-    var nextButtonBottomConstraint: NSLayoutConstraint!
-    var labelTopConstraint: NSLayoutConstraint!
-    var textFieldTopConstraint: NSLayoutConstraint!
+    fileprivate let distance: CGFloat = 32
+    fileprivate var nextButtonBottomConstraint: NSLayoutConstraint!
+    fileprivate var labelTopConstraint: NSLayoutConstraint!
+    fileprivate var textFieldTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
