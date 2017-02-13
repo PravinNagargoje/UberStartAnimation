@@ -16,7 +16,7 @@ class AccessoryView: UIView {
         super.init(frame: frame)
         
         self.backgroundColor = UIColor.clear
-        self.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        self.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         self.addSubview(self.nextButton)
 
         setupNextButton()
@@ -27,8 +27,11 @@ class AccessoryView: UIView {
     }
     
     func setupNextButton() {
-        self.nextButton.setTitle("Done", for: .normal)
-        self.nextButton.setTitleColor(UIColor.gray, for: .normal)
+//        self.nextButton.setTitle("Done", for: .normal)
+//        self.nextButton.setTitleColor(UIColor.gray, for: .normal)
+        self.nextButton.setImage(#imageLiteral(resourceName: "GrayRight"), for: .normal)
+        self.nextButton.setImage(#imageLiteral(resourceName: "DarkRight"), for: .selected)
+
         self.nextButton.isEnabled = false
         self.nextButton.titleLabel?.font = UIFont(name: "Bold", size: 16)
         self.addSubview(self.nextButton)

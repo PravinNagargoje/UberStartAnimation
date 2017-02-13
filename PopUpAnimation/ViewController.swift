@@ -14,21 +14,24 @@ class ViewController: UIViewController {
     fileprivate var viewOne = UIView()
     fileprivate var viewTwo = UIView()
     fileprivate var instructionLabel = UILabel()
+    fileprivate var uberLabel = UILabel()
     fileprivate var backButton = UIButton()
-    fileprivate var topConstraint: NSLayoutConstraint!
+    fileprivate let accessoryView = AccessoryView()
     fileprivate var showKeyboard = false
     fileprivate let distance: CGFloat = 32
     fileprivate var labelTopConstraint: NSLayoutConstraint!
     fileprivate var textFieldTopConstraint: NSLayoutConstraint!
-    fileprivate let accessoryView = AccessoryView()
+    fileprivate var topConstraint: NSLayoutConstraint!
+    fileprivate var placeholder = "Enter your mobile number"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViewOne()
         setupViewTwo()
+        setupUberLabel()
         setupTextField()
-        setupButton()
+        setupBackButton()
         setupLabel()
     }
 
@@ -43,7 +46,7 @@ extension ViewController {
     func setupViewOne() {
         self.view.addSubview(self.viewOne)
         self.view.addSubview(self.viewTwo)
-        self.viewOne.backgroundColor = UIColor.gray
+        self.viewOne.backgroundColor = UIColor(netHex: 0x129399)
         self.viewOne.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.viewOne.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -104,29 +107,36 @@ extension ViewController {
         )
     }
     
+    func setupUberLabel() {
+        self.uberLabel.text = "Get moving with Uber"
+        self.viewTwo.addSubview(self.uberLabel)
+        self.uberLabel.font = UIFont(name: "Arial", size: 20)
+        self.uberLabel.textColor = UIColor.black
+        
+        self.uberLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.uberLabel.topAnchor.constraint(equalTo: self.viewTwo.topAnchor, constant: distance + 16 ),
+            self.uberLabel.leadingAnchor.constraint(equalTo: self.viewTwo.leadingAnchor, constant: distance)
+        ])
+    }
+    
     func setupTextField() {
-       
         self.viewTwo.addSubview(self.textField)
         self.viewTwo.addSubview(self.backButton)
         
-        let leftView : UILabel = UILabel(frame: CGRect(x: 10, y: 0, width: 7, height: 26))
-        leftView.backgroundColor = UIColor.clear
+//        let leftView : UILabel = UILabel(frame: CGRect(x: 10, y: 0, width: 7, height: 26))
+//        leftView.backgroundColor = UIColor.clear
+//        textField.leftView = leftView
+//        textField.leftViewMode = .always
+//        textField.contentVerticalAlignment = .center
         
         textField.inputAccessoryView = accessoryView
         
-        
-        textField.leftView = leftView
-        textField.leftViewMode = .always
-        textField.contentVerticalAlignment = .center
-        
-        self.textField.placeholder = "Enter mobile number"
-        self.textField.layer.borderWidth = 1
-        self.textField.layer.cornerRadius = 7
+        self.textField.placeholder = self.placeholder
         self.textField.autocorrectionType = .no
         self.textField.keyboardType = .phonePad
         self.textField.keyboardAppearance = .dark
         self.textField.delegate = self
-        self.textField.layer.borderColor = UIColor.darkGray.cgColor
         self.textField.translatesAutoresizingMaskIntoConstraints = false
         
         textFieldTopConstraint = NSLayoutConstraint(
@@ -134,9 +144,9 @@ extension ViewController {
             attribute: .top,
             relatedBy: .equal,
             toItem: backButton,
-            attribute: .top,
+            attribute: .bottom,
             multiplier: 1.0,
-            constant: 0
+            constant: 16
         )
         
         view.addConstraints(
@@ -144,28 +154,28 @@ extension ViewController {
         )
         
         NSLayoutConstraint.activate([
-            self.textField.leadingAnchor.constraint(equalTo: self.viewTwo.leadingAnchor, constant: distance + 32),
+            self.textField.leadingAnchor.constraint(equalTo: self.viewTwo.leadingAnchor, constant: distance ),
             self.textField.trailingAnchor.constraint(equalTo: self.viewTwo.trailingAnchor, constant: -distance),
             self.textField.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     
-    func setupButton() {
+    func setupBackButton() {
        
-        self.backButton.setTitle("Back", for: .normal)
+        self.backButton.setImage(#imageLiteral(resourceName: "LeftArrow"), for: .normal)
         self.backButton.setTitleColor(UIColor.darkGray, for: .normal)
         self.backButton.alpha = 0
         self.backButton.addTarget(self, action: #selector(backButtonClicked), for: .touchUpInside)
         self.backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.backButton.topAnchor.constraint(equalTo: self.viewTwo.topAnchor, constant: distance),
-            self.backButton.heightAnchor.constraint(equalToConstant: 40),
+//            self.backButton.heightAnchor.constraint(equalToConstant: 40),
             self.backButton.leadingAnchor.constraint(equalTo: self.viewTwo.leadingAnchor, constant: 16)
         ])
     }
     
     func setupLabel() {
-        self.instructionLabel.text = "Enter mobile number"
+        self.instructionLabel.text = self.placeholder
         self.viewTwo.addSubview(self.instructionLabel)
         self.instructionLabel.font = UIFont(name: "Bold", size: 16)
         self.instructionLabel.isHidden = true
@@ -176,17 +186,17 @@ extension ViewController {
             item: instructionLabel,
             attribute: .leading,
             relatedBy: .equal,
-            toItem: backButton,
-            attribute: .trailing,
+            toItem: viewTwo,
+            attribute: .leading,
             multiplier: 1.0,
-            constant: 12
+            constant: 32
         )
         labelTopConstraint = NSLayoutConstraint(
             item: instructionLabel,
             attribute: .top,
             relatedBy: .equal,
             toItem: backButton,
-            attribute: .top,
+            attribute: .bottom,
             multiplier: 1.0,
             constant: 0
         )
@@ -209,11 +219,20 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         
         self.topConstraint.constant = -self.view.frame.size.height
-        self.textFieldTopConstraint.constant = 80
-        self.textField.placeholder = ""
-        self.labelTopConstraint.constant = 40
+        self.textFieldTopConstraint.constant = distance*3 - 16
+        self.textField.placeholder = "(201) 555-5555"
+        setBottomBorder(color: .black)
+        self.labelTopConstraint.constant = 32
+        self.uberLabel.isHidden = true
         self.instructionLabel.isHidden = false
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+        UIView.animate(
+            withDuration: 0.8,
+            delay: 0,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseOut,
+            animations:
+            {
             self.view.layoutIfNeeded()
             }) { _ in
                 self.showKeyboard = true
@@ -225,67 +244,56 @@ extension ViewController: UITextFieldDelegate {
     
     
     func textFieldShouldEndEditing(_ textField: UITextField) ->Bool {
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+        UIView.animate(
+            withDuration: 0.8,
+            delay: 0,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseOut,
+            animations:
+            {
             self.topConstraint.constant = -275
             self.backButton.alpha = 0
+            self.setBottomBorder(color: .clear)
             self.instructionLabel.isHidden = true
-            self.textFieldTopConstraint.constant = 0
+            self.textFieldTopConstraint.constant = 16
             self.textField.placeholder = "Enter mobile number"
-            
+            self.uberLabel.isHidden = false
             self.view.layoutIfNeeded()
         })
         
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        if !(self.textField.text?.isEmpty)! {
-            accessoryView.nextButton.setTitleColor(UIColor.green, for: .normal)
-            accessoryView.nextButton.isEnabled = true
-        } else {
-            accessoryView.nextButton.isEnabled = false
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+        ) -> Bool
+    {
+       
+        
+        guard let text = textField.text else { return true }
+        let newLength = text.characters.count + string.characters.count - range.length
+        accessoryView.nextButton.isSelected = (newLength > 0)
+        accessoryView.nextButton.isEnabled = (newLength > 0)
+        if newLength == 0 {
+            self.textField.text = ""
         }
+        return newLength > 0 ? true : false
     }
 }
 
-// Mark: - For iOS 10 and further only
-//    var constraint: UIViewPropertyAnimator?
-//extension ViewController: UITextFieldDelegate {
-//    
-//    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//                constraint = UIViewPropertyAnimator(duration: 1, dampingRatio: 1.5, animations: {
-//        
-//                    self.topConstraint.constant = -self.view.frame.size.height
-//                    self.textFieldTopConstraint.constant = 80
-//                    self.textField.placeholder = ""
-//                    self.labelTopConstraint.constant = 40
-//                    self.instructionLabel.isHidden = false
-//                    self.view.layoutIfNeeded()
-//                })
-//        
-//                constraint?.startAnimation()
-//                constraint?.addCompletion {
-//                    _ in
-//                        self.showKeyboard = true
-//                        self.backButton.isHidden = false
-//                        self.textField.becomeFirstResponder()
-//                }
-//            return showKeyboard
-//    }
-//    
-//    func textFieldShouldEndEditing(_ textField: UITextField) ->Bool {
-//        
-//                constraint = UIViewPropertyAnimator(duration: 1, dampingRatio: 1.5, animations: {
-//        
-//                    self.topConstraint.constant = -275
-//                    self.backButton.isHidden = true
-//                    self.instructionLabel.isHidden = true
-//                    self.textFieldTopConstraint.constant = 0
-//                    self.textField.placeholder = "Enter mobile number"
-//        
-//                    self.view.layoutIfNeeded()
-//                })
-//                constraint?.startAnimation()
-//        return true
-//    }
-//}
+extension ViewController {
+    
+    func setBottomBorder(color: UIColor) {
+        self.textField.borderStyle = .none
+        self.textField.layer.backgroundColor = UIColor.white.cgColor
+        
+        self.textField.layer.masksToBounds = false
+        self.textField.layer.shadowColor = color.cgColor
+        self.textField.layer.shadowOffset = CGSize(width: 0.0, height: 1.5)
+        self.textField.layer.shadowOpacity = 1.0
+        self.textField.layer.shadowRadius = 0.0
+    }
+}

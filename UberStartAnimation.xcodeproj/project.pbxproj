@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042D02E41E4F0D8600D01C63 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D02E31E4F0D8600D01C63 /* UIColor.swift */; };
 		049A28711E4E06D000D80414 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A28701E4E06D000D80414 /* AccessoryView.swift */; };
 		04C523B41E4CA1760059B4E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C523B31E4CA1760059B4E0 /* AppDelegate.swift */; };
 		04C523B61E4CA1760059B4E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C523B51E4CA1760059B4E0 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042D02E31E4F0D8600D01C63 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		049A28701E4E06D000D80414 /* AccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
 		04C523B01E4CA1760059B4E0 /* UberStartAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberStartAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C523B31E4CA1760059B4E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				04C523BA1E4CA1760059B4E0 /* Assets.xcassets */,
 				04C523BF1E4CA1760059B4E0 /* Info.plist */,
 				04C523BC1E4CA1760059B4E0 /* LaunchScreen.storyboard */,
+				042D02E31E4F0D8600D01C63 /* UIColor.swift */,
 				04C523B51E4CA1760059B4E0 /* ViewController.swift */,
 				049A28701E4E06D000D80414 /* AccessoryView.swift */,
 			);
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				049A28711E4E06D000D80414 /* AccessoryView.swift in Sources */,
+				042D02E41E4F0D8600D01C63 /* UIColor.swift in Sources */,
 				04C523B61E4CA1760059B4E0 /* ViewController.swift in Sources */,
 				04C523B41E4CA1760059B4E0 /* AppDelegate.swift in Sources */,
 			);
