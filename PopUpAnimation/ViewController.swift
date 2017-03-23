@@ -19,10 +19,12 @@ class ViewController: UIViewController {
     fileprivate let accessoryView = AccessoryView()
     fileprivate let distance: CGFloat = 32
     fileprivate let placeholder = "Enter your mobile number"
+    fileprivate var imageView = UIImageView()
     
     fileprivate var labelTopConstraint: NSLayoutConstraint!
     fileprivate var textFieldTopConstraint: NSLayoutConstraint!
     fileprivate var topConstraint: NSLayoutConstraint!
+    fileprivate var heightAnchor: NSLayoutConstraint!
     fileprivate var showKeyboard = false
     
     override func viewDidLoad() {
@@ -30,6 +32,7 @@ class ViewController: UIViewController {
         
         setupViewOne()
         setupViewTwo()
+        setupImageView()
         setupUberLabel()
         setupTextField()
         setupBackButton()
@@ -57,6 +60,24 @@ extension ViewController {
         ])
     }
     
+    func setupImageView() {
+        self.viewOne.addSubview(self.imageView)
+        self.imageView.backgroundColor = UIColor.clear
+        self.imageView.image = UIImage(named: "uber")
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.imageView.widthAnchor.constraint(equalToConstant: 250),
+            self.imageView.centerXAnchor.constraint(equalTo: self.viewOne.centerXAnchor),
+            self.imageView.centerYAnchor.constraint(equalTo: self.viewOne.centerYAnchor)
+//            self.imageView.leadingAnchor.constraint(equalTo: self.viewOne.leadingAnchor, constant: self.viewOne.frame.size.width/3),
+//            self.imageView.trailingAnchor.constraint(equalTo: self.viewOne.trailingAnchor, constant: -self.viewOne.frame.size.width/3),
+//            self.imageView.topAnchor.constraint(equalTo: self.viewOne.topAnchor, constant: self.viewOne.frame.size.height/3),
+//            self.imageView.bottomAnchor.constraint(equalTo: self.viewOne.bottomAnchor, constant: -self.viewOne.frame.size.height/3)
+        ])
+        heightAnchor = self.imageView.heightAnchor.constraint(equalToConstant: 250)
+        heightAnchor.isActive = true
+    }
+    
     func setupViewTwo() {
         self.viewTwo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -75,7 +96,7 @@ extension ViewController {
     func setupUberLabel() {
         self.uberLabel.text = "Get moving with Uber"
         self.viewTwo.addSubview(self.uberLabel)
-        self.uberLabel.font = UIFont(name: "Arial", size: 20)
+        self.uberLabel.font = UIFont(name: "Arial", size: 24)
         self.uberLabel.textColor = UIColor.black
         
         self.uberLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -90,11 +111,18 @@ extension ViewController {
         self.viewTwo.addSubview(self.backButton)
         textField.inputAccessoryView = accessoryView
         
+        self.textField.leftViewMode = .always
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "Phone")
+        let secondView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+        secondView.addSubview(imageView)
         self.textField.placeholder = self.placeholder
         self.textField.autocorrectionType = .no
         self.textField.keyboardType = .phonePad
         self.textField.keyboardAppearance = .dark
         self.textField.delegate = self
+        self.textField.leftView = secondView
 
         self.textField.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -145,6 +173,7 @@ extension ViewController {
         self.backButton.alpha = 0
         self.setBottomBorder(color: .clear)
         self.instructionLabel.isHidden = true
+        self.heightAnchor.constant = 250
         self.textFieldTopConstraint.constant = distance/2
         self.textField.placeholder = self.placeholder
         self.uberLabel.isHidden = false
@@ -171,6 +200,8 @@ extension ViewController: UITextFieldDelegate {
         self.textFieldTopConstraint.constant = distance*3 - distance/2
         self.textField.placeholder = "(201) 555-5555"
         setBottomBorder(color: .black)
+        self.heightAnchor.constant = 0
+        
         self.labelTopConstraint.constant = distance
         self.uberLabel.isHidden = true
         self.instructionLabel.isHidden = false
